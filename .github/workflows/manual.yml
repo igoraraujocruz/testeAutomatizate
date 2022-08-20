@@ -1,26 +1,14 @@
-name: CI
+name: Manual workflow
 
 on:
   push:
-    branches: [ master ]
-
-
-  workflow_dispatch:
-
+    branches:
+    - main
+    
 jobs:
-  build:
+  greet:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: Setup Nodejs
-        uses: actions/setup-node@v2
-        with:
-          node-version: 17.x
-          
-      - name: Install Dependencies
-        run: yarn
-        
-      - name: Install Dependencies
-        run: console.log('teste')
+    - name: Send greeting
+      run: echo '${{toJSON(github.event.commits[0])}}'
