@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Send greeting
-      run: IFS=', ' read -a array <<< "Paris, France, Europe"; echo "${array[@]}"
+      run: IFS=', ' read -a array <<< "Paris, France, Europe"; echo "${array[0]}"
