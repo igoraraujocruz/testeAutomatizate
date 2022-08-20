@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Split commit message
-        run: $commitMessageSplit = '$commitMessage.split('-')'
+        run: readarray -d - -t teste <<< "$commitMessage"
       - name: print
-        run: echo '$commitMessageSplit'
+        run: echo '$teste'
   
       
