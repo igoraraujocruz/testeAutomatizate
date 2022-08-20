@@ -1,21 +1,26 @@
-name: split example
+name: CI
+
 on:
   push:
-    branches:
-    - main
-    
-jobs:
-  example:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: JungWinter/split@v2.0.0
-        id: split
-        with:
-          msg: '/release split v1.0.0'
+    branches: [ master ]
 
-      - name: release package
-        if: steps.split.outputs._0 == '/release'
-        uses: actions/create-release@latest
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Nodejs
+        uses: actions/setup-node@v2
         with:
-          release_name: Release ${{ steps.split.outputs._1 }}
-          tag_name: ${{ steps.split.outputs._2 }}
+          node-version: 17.x
+          
+      - name: Install Dependencies
+        run: yarn
+        
+      - name: Install Dependencies
+        run: console.log('teste')
