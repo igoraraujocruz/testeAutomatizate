@@ -4,13 +4,14 @@ on:
   push:
     branches:
     - main
-    
+env:
+  nome: Juvenal
+  
 jobs:
   greet:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Send greeting
-    env:
-      meuNome: igor
-      run: echo "$meuNome"
+      - name: Send greeting
+        run: echo "$nome"
+  
+      
