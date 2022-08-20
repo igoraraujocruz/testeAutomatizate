@@ -14,4 +14,4 @@ jobs:
       run: echo '${{github.event.head_commit.message}}'
       
     - name: Separar commit
-      run: IFS='-' read -a array <<< "${{github.event.head_commit.message}}"; echo "${array[1]}"
+      run: IFS='-' read -a array <<< "${{github.event.head_commit.message}}"; echo "${array[3]}"
