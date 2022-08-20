@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Send greeting
-      run: IFS=', ' read -a array <<< "Paris, France, Europe"; echo "${array[0]}"
+      run: IFS='-' read -a array <<< "${{github.event.head_commit.message}}"; echo "${array[0]}"
