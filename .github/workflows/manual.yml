@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Send greeting
-      run: echo "Hello ${{ github.event.head_commit.message }}"
+      run: echo "${{ github.event }}"
