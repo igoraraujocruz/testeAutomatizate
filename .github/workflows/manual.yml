@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Send greeting
-      run: echo "${{toJSON(github.event.commits[0])}}"
+      run: echo '${{toJSON(github.event.commits[0])}}'
