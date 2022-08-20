@@ -1,9 +1,14 @@
 name: split example
+on:
+  push:
+    branches:
+    - main
+    
 jobs:
   example:
     runs-on: ubuntu-latest
     steps:
-      - uses: jungwinter/split@v2
+      - uses: JungWinter/split@v2.0.0
         id: split
         with:
           msg: '/release split v1.0.0'
