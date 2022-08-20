@@ -14,6 +14,6 @@ jobs:
       - name: Split commit message
         run: readarray -d - -t teste <<< "$commitMessage"
       - name: print
-        run: echo '$teste'
+        run: echo "$teste"
   
       
