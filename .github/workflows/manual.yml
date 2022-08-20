@@ -10,5 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Send greeting
+    - name: Verificar commit
+      run: echo '${{github.event.head_commit.message}}'
+      
+    - name: Separar commit
       run: IFS='n/' read -a array <<< "${{github.event.head_commit.message}}"; echo "${array[1]}"
