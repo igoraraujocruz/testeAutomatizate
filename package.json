@@ -1,0 +1,28 @@
+{
+	"devDependencies": {
+		"@commitlint/cli": "^17.0.3",
+		"@commitlint/config-conventional": "^17.0.3",
+		"commitizen": "^4.2.5",
+		"cz-conventional-changelog": "3.3.0",
+		"husky": "4.3.8",
+		"lint-staged": "^13.0.3"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged",
+			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+			"prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+		}
+	},
+	"lint-staged": {
+		"*.ts": [
+			"eslint --fix",
+			"git add"
+		]
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}
