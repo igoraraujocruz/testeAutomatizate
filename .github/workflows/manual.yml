@@ -1,25 +1,16 @@
-name: Manual workflow
-
-on:
-  push:
-    branches:
-    - main
-env:
-  commitMessage: ${{ github.event.head_commit.message }}
-  
+name: split example
 jobs:
-  build:
+  example:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: Setup Nodejs
-        uses: actions/setup-node@v2
+      - uses: jungwinter/split@v2
+        id: split
         with:
-            node-version: 17.x
-      - name: Instalar dependencias
-        run: yarn 
-      - name: Verificar se existe comando
-        run: console.log('existe')
-  
-      
+          msg: '/release split v1.0.0'
+
+      - name: release package
+        if: steps.split.outputs._0 == '/release'
+        uses: actions/create-release@latest
+        with:
+          release_name: Release ${{ steps.split.outputs._1 }}
+          tag_name: ${{ steps.split.outputs._2 }}
