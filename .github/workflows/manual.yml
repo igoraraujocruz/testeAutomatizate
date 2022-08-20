@@ -17,6 +17,8 @@ jobs:
         uses: actions/setup-node@v2
         with:
             node-version: 17.x
+      - name: Instalar dependencias
+        run: yarn 
       - name: Verificar se existe comando
         run: console.log('existe')
   
