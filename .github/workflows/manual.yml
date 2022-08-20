@@ -11,7 +11,9 @@ jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
-      - name: Send greeting
-        run: echo "$commitMessage"
+      - name: Split commit message
+        run: commitMessageSplit = commitMessage.split('-')
+      - name: print
+        run: echo "$commitMessageSplit"
   
       
